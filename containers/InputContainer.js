@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {handleChangeOnInput, handleSubmitOnInput} from "../actions/InputAction";
+import {handleChangeOnInput, handleSubmitOnInput} from "../actions/index";
 
 class InputContainer extends React.Component {
     render() {

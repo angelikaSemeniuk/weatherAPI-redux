@@ -1,4 +1,4 @@
-const initialState = {inputValue: "", recieveCityName: false, submitOk: false, error: ""};
+const initialState = {inputValue: "", cityName: "", icon: null, temperature: null, forecast: "", description: "", submitOk: false, error: ""};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -11,6 +11,31 @@ const reducer = (state = initialState, action) => {
             return Object.assign({},state, {
                 submitOk: true,
                 inputValue: ""
+            })
+        }
+        case "RECIEVE_CITY_NAME": {
+            return Object.assign({},state, {
+                cityName: action.value,
+            })
+        }
+        case "RECIEVE_ICON": {
+            return Object.assign({},state, {
+                icon: action.icon,
+            })
+        }
+        case "RECIEVE_TEMPERATURE": {
+            return Object.assign({},state, {
+                temperature: action.value,
+            })
+        }
+        case "RECIEVE_FORECAST": {
+            return Object.assign({},state, {
+                forecast: action.value,
+            })
+        }
+        case "RECIEVE_DESCRIPTION": {
+            return Object.assign({},state, {
+                description: action.value,
             })
         }
         case "CATCH_ERROR": {
