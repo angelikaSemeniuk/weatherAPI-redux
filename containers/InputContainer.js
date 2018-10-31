@@ -7,7 +7,8 @@ class InputContainer extends React.Component {
         return(
                 <div className="input-container">
                     <form onSubmit={this.props.handleSubmitOnInput.bind(this, this.props.inputValue)}>
-                        <input type="text" value={this.props.inputValue} onChange={this.props.handleChangeOnInput.bind(this)}/>
+                        <input type="text" value={this.props.inputValue} onChange={this.props.handleChangeOnInput.bind(this)}
+                        placeholder="Enter the name of the city"/>
                     </form>
                 </div>
         );
