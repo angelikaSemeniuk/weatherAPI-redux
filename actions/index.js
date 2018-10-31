@@ -17,7 +17,6 @@ export function handleSubmitOnInput(cityName) {
                 (data) => {
                     console.error("action-DATA-response", data);
                     dispatch({type: "RECIEVE_CITY_NAME", value: data.name});
-                    dispatch({type: "RECIEVE_ICON", icon: data.weather[0].icon});
                     dispatch({type: "RECIEVE_TEMPERATURE", value: data.main.temp});
                     dispatch({type: "RECIEVE_FORECAST", value: data.weather[0].main});
                     dispatch({type: "RECIEVE_DESCRIPTION", value: data.weather[0].description});

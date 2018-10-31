@@ -18,11 +18,6 @@ const reducer = (state = initialState, action) => {
                 cityName: action.value,
             })
         }
-        case "RECIEVE_ICON": {
-            return Object.assign({},state, {
-                icon: action.icon,
-            })
-        }
         case "RECIEVE_TEMPERATURE": {
             return Object.assign({},state, {
                 temperature: action.value,
