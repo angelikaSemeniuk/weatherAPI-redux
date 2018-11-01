@@ -8,18 +8,26 @@ library.add(faCloud, faUmbrella, faCloudSun, faSun);
 class DescriptionContainer extends React.Component {
     render() {
         return(
-            this.props.submitOk &&
-            <div className="description-container">
-                <h3 dangerouslySetInnerHTML={{__html: this.props.cityName}}></h3>
-                {this.props.forecast === "Clouds" && <FontAwesomeIcon icon="cloud"/>}
-                {this.props.forecast === "Rain" && <FontAwesomeIcon icon="umbrella"/>}
-                {this.props.forecast === "Clear" && <FontAwesomeIcon icon="cloud-sun"/>}
-                {this.props.forecast === "Sun" && <FontAwesomeIcon icon="sun"/>}
-                <p dangerouslySetInnerHTML={{__html: this.props.forecast}}></p>
-                <p dangerouslySetInnerHTML={{__html: "Temperature, °C : " + this.props.temperature}}></p>
-                <p dangerouslySetInnerHTML={{__html: "Description : " + this.props.description}}></p>
-            </div>
+            <div className="main-container">
+                { this.props.submitOk &&
+                    <div className="description-container">
+                        <h3 dangerouslySetInnerHTML={{__html: this.props.cityName}}></h3>
+                        {this.props.forecast === "Clouds" && <FontAwesomeIcon icon="cloud"/>}
+                        {this.props.forecast === "Rain" && <FontAwesomeIcon icon="umbrella"/>}
+                        {this.props.forecast === "Clear" && <FontAwesomeIcon icon="cloud-sun"/>}
+                        {this.props.forecast === "Sun" && <FontAwesomeIcon icon="sun"/>}
+                        <p dangerouslySetInnerHTML={{__html: this.props.forecast}}></p>
+                        <p dangerouslySetInnerHTML={{__html: "Temperature, °C : " + this.props.temperature}}></p>
+                        <p dangerouslySetInnerHTML={{__html: "Description : " + this.props.description}}></p>
+                    </div> }
 
+                { this.props.recieveError &&
+                    <div className="error-container">
+                        <p dangerouslySetInnerHTML={{__html: this.props.error}}></p>
+                        <p dangerouslySetInnerHTML={{__html: "Message:  " + this.props.messageError}}></p>
+                    </div> }
+
+            </div>
         );
     }
 }
@@ -30,6 +38,9 @@ const mapStateToProps = (state) => {
         temperature: state.temperature,
         forecast: state.forecast,
         description: state.description,
+        recieveError: state.recieveError,
+        error: state.error,
+        messageError: state.messageError,
         submitOk: state.submitOk
     }
 };
