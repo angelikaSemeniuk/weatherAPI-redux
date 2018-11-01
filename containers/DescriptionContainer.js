@@ -8,25 +8,24 @@ library.add(faCloud, faUmbrella, faCloudSun, faSun);
 class DescriptionContainer extends React.Component {
     render() {
         return(
-            <div className="main-container">
+            <div className="description-container" style={{width: "40%"}}>
                 { this.props.submitOk &&
-                    <div className="description-container">
-                        <h3 dangerouslySetInnerHTML={{__html: this.props.cityName}}></h3>
-                        {this.props.forecast === "Clouds" && <FontAwesomeIcon icon="cloud"/>}
-                        {this.props.forecast === "Rain" && <FontAwesomeIcon icon="umbrella"/>}
-                        {this.props.forecast === "Clear" && <FontAwesomeIcon icon="cloud-sun"/>}
-                        {this.props.forecast === "Sun" && <FontAwesomeIcon icon="sun"/>}
-                        <p dangerouslySetInnerHTML={{__html: this.props.forecast}}></p>
-                        <p dangerouslySetInnerHTML={{__html: "Temperature, °C : " + this.props.temperature}}></p>
-                        <p dangerouslySetInnerHTML={{__html: "Description : " + this.props.description}}></p>
-                    </div> }
+                <div className="description-container">
+                    <h3 dangerouslySetInnerHTML={{__html: this.props.cityName}}></h3>
+                    {this.props.forecast === "Clouds" && <FontAwesomeIcon icon="cloud"/>}
+                    {this.props.forecast === "Rain" && <FontAwesomeIcon icon="umbrella"/>}
+                    {this.props.forecast === "Clear" && <FontAwesomeIcon icon="cloud-sun"/>}
+                    {this.props.forecast === "Sun" && <FontAwesomeIcon icon="sun"/>}
+                    <p dangerouslySetInnerHTML={{__html: this.props.forecast}}></p>
+                    <p dangerouslySetInnerHTML={{__html: "Temperature, °C : " + this.props.temperature}}></p>
+                    <p dangerouslySetInnerHTML={{__html: "Description : " + this.props.description}}></p>
+                </div> }
 
                 { this.props.recieveError &&
-                    <div className="error-container">
-                        <p dangerouslySetInnerHTML={{__html: this.props.error}}></p>
-                        <p dangerouslySetInnerHTML={{__html: "Message:  " + this.props.messageError}}></p>
-                    </div> }
-
+                <div className="description-container">
+                    <p dangerouslySetInnerHTML={{__html: this.props.error}}></p>
+                    <p dangerouslySetInnerHTML={{__html: "Message:  " + this.props.messageError}}></p>
+                </div> }
             </div>
         );
     }

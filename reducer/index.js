@@ -44,6 +44,8 @@ const reducer = (state = initialState, action) => {
         case "RECIEVE_NECESSARY_DATA": {
             return Object.assign({}, state, {
                 submitOk: true,
+                recieveError: false,
+
             })
         }
         default:

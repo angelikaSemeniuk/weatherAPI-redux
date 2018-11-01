@@ -4,11 +4,12 @@ import {handleChangeOnInput, handleSubmitOnInput} from "../actions/index";
 
 class InputContainer extends React.Component {
     render() {
+        const input1 = <input type="text" value={this.props.inputValue} onChange={this.props.handleChangeOnInput.bind(this)} placeholder="Enter the name of the city" style={{borderColor: "red"}}/>;
+        const input2 = <input type="text" value={this.props.inputValue} onChange={this.props.handleChangeOnInput.bind(this)} placeholder="Enter the name of the city"/>;
         return(
                 <div className="input-container">
                     <form onSubmit={this.props.handleSubmitOnInput.bind(this, this.props.inputValue)}>
-                        <input type="text" value={this.props.inputValue} onChange={this.props.handleChangeOnInput.bind(this)}
-                        placeholder="Enter the name of the city"/>
+                        { this.props.recieveError ? input1 : input2 }
                     </form>
                 </div>
         );
@@ -18,6 +19,7 @@ class InputContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         inputValue: state.inputValue,
+        recieveError: state.recieveError
     }
 };
 

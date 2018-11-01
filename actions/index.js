@@ -15,7 +15,6 @@ export function handleSubmitOnInput(cityName) {
             })
             .then(
                 (data) => {
-                    console.error("action-DATA-response", data);
                     if(data.cod === "404") {
                         dispatch({type: "CATCH_ERROR", value: data.cod, message: data.message});
                     } else {
